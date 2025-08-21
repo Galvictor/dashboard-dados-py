@@ -4,10 +4,6 @@ import plotly.express as px
 
 st.set_page_config(page_title="Sales Dashboard", page_icon=":bar_chart:", layout="wide")
 
-# TODO: Tipo de produto mais vendido
-# TODO: Desempenho das formas de pagamento
-# TODO: Como estão as avaliações das filiais?
-
 # Carregar dados
 df = pd.read_csv("supermarket_sales.csv", sep=",", decimal=",")
 
