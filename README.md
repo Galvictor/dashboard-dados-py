@@ -1,12 +1,20 @@
 # 📊 Dashboard de Vendas - Supermercado
 
-Um dashboard interativo criado com Streamlit para análise avançada de dados de vendas de supermercado, com estrutura modular e organizada.
+Um dashboard interativo e profissional criado com Streamlit para análise avançada de dados de vendas de supermercado, com estrutura modular, navegação por páginas e filtros globais.
 
 ## 🏗️ **Estrutura do Projeto**
 
 ```
 dashboard_dados_py/
-├── dashboard.py              # 🚀 Dashboard principal (modular e organizado)
+├── dashboard.py              # 🚀 Página principal com visão geral
+├── pages/                    # 📄 Páginas específicas do Streamlit
+│   ├── 1_📊_kpis.py         # KPIs principais
+│   ├── 2_⏰_analise_temporal.py
+│   ├── 3_📦_analise_produtos.py
+│   ├── 4_👥_analise_clientes.py
+│   ├── 5_🏪_analise_filiais.py
+│   ├── 6_💰_analise_margem.py
+│   └── 7_📊_graficos_originais.py
 ├── modules/                  # 📦 Módulos de análise
 │   ├── __init__.py
 │   ├── kpis.py              # KPIs principais
@@ -18,7 +26,8 @@ dashboard_dados_py/
 │   └── original_charts.py   # Gráficos originais
 ├── utils/                    # 🛠️ Utilitários
 │   ├── __init__.py
-│   └── data_loader.py       # Carregamento de dados
+│   ├── data_loader.py       # Carregamento de dados
+│   └── sidebar_filters.py   # Filtros globais da sidebar
 ├── supermarket_sales.csv     # Dataset de vendas
 ├── TODO.md                   # Lista de tarefas e próximos passos
 └── README.md                 # Este arquivo
@@ -27,9 +36,33 @@ dashboard_dados_py/
 ## 🚀 **Tecnologias Utilizadas**
 
 -   **Streamlit** - Framework para criação de aplicações web de dados
+-   **Streamlit Pages** - Sistema de navegação por páginas
 -   **Pandas** - Manipulação e análise de dados
 -   **Plotly** - Criação de gráficos interativos
 -   **Python 3.13** - Linguagem de programação
+
+## 🆕 **Novidades da Versão 2.0**
+
+### ✨ **Sistema de Páginas**
+
+-   **Navegação intuitiva** entre diferentes análises
+-   **Páginas específicas** para cada tipo de análise
+-   **Menu lateral automático** criado pelo Streamlit
+-   **URLs únicas** para cada página
+
+### 🔄 **Filtros Globais**
+
+-   **Sidebar persistente** em todas as páginas
+-   **Filtros sincronizados** entre páginas
+-   **Dados compartilhados** via session state
+-   **Performance otimizada** com cache inteligente
+
+### 📱 **Experiência do Usuário**
+
+-   **Interface responsiva** e moderna
+-   **Navegação fluida** entre análises
+-   **Foco específico** em cada página
+-   **Carregamento rápido** de conteúdo
 
 ## 🛠️ **Instalação**
 
@@ -76,25 +109,6 @@ pip install -r requirements-dev.txt
 pip install streamlit>=1.28.0 pandas>=2.0.0 plotly>=5.15.0 numpy>=1.24.0
 ```
 
-## 🛠️ **Requisitos**
-
-### **Dependências Principais**
-
-```bash
-pip install -r requirements.txt
-```
-
-### **Arquivos de Dependências**
-
--   **`requirements.txt`** - Dependências essenciais para produção
--   **`requirements-dev.txt`** - Dependências adicionais para desenvolvimento
-
-### **Dependências Mínimas**
-
-```bash
-pip install streamlit>=1.28.0 pandas>=2.0.0 plotly>=5.15.0 numpy>=1.24.0
-```
-
 ## 🎯 **Como Executar**
 
 1. **Ative o ambiente virtual** (se não estiver ativo)
@@ -113,31 +127,56 @@ pip install streamlit>=1.28.0 pandas>=2.0.0 plotly>=5.15.0 numpy>=1.24.0
     - O dashboard será aberto automaticamente em `http://localhost:8501`
     - Ou acesse manualmente a URL exibida no terminal
 
-## ✨ **Vantagens da Estrutura Modular**
+## 🧭 **Navegação e Páginas**
+
+### **🏠 Página Principal (`dashboard.py`)**
+
+-   **Visão geral completa** de todas as análises
+-   **Filtros globais** na sidebar
+-   **KPIs principais** em destaque
+-   **Resumo executivo** do negócio
+
+### **📊 Páginas Específicas**
+
+-   **1_📊_kpis.py** - Indicadores de performance detalhados
+-   **2_⏰_analise_temporal.py** - Análise de tendências e sazonalidade
+-   **3_📦_analise_produtos.py** - Performance e ranking de produtos
+-   **4_👥_analise_clientes.py** - Segmentação e comportamento de clientes
+-   **5_🏪_analise_filiais.py** - Performance por localização
+-   **6_💰_analise_margem.py** - Análise de rentabilidade
+-   **7_📊_graficos_originais.py** - Visualizações complementares
+
+## ✨ **Vantagens da Nova Estrutura**
 
 ### 1. **🔧 Manutenibilidade**
 
--   Cada análise está em um arquivo separado
+-   Cada análise está em uma página separada
 -   Fácil de encontrar e modificar funcionalidades específicas
 -   Código mais limpo e organizado
 
 ### 2. **📈 Escalabilidade**
 
--   Adicionar novas análises é simples
--   Basta criar um novo módulo e importar no arquivo principal
--   Não afeta outras funcionalidades
+-   Adicionar novas páginas é simples
+-   Basta criar um novo arquivo na pasta `pages/`
+-   Navegação automática criada pelo Streamlit
 
 ### 3. **👥 Trabalho em Equipe**
 
--   Diferentes desenvolvedores podem trabalhar em módulos diferentes
+-   Diferentes desenvolvedores podem trabalhar em páginas diferentes
 -   Menos conflitos de merge
 -   Código mais fácil de revisar
 
 ### 4. **🧪 Testabilidade**
 
--   Cada módulo pode ser testado independentemente
+-   Cada página pode ser testada independentemente
 -   Mais fácil de debugar problemas específicos
 -   Melhor isolamento de funcionalidades
+
+### 5. **🎯 Foco do Usuário**
+
+-   Cada página tem um objetivo específico
+-   Não precisa fazer scroll infinito
+-   Navegação intuitiva e rápida
 
 ## 📋 **Módulos Disponíveis**
 
@@ -184,9 +223,30 @@ pip install streamlit>=1.28.0 pandas>=2.0.0 plotly>=5.15.0 numpy>=1.24.0
 -   Formas de pagamento
 -   Avaliações
 
-## 🆕 **Como Adicionar Novas Análises**
+## 🆕 **Como Adicionar Novas Páginas**
 
-### 1. **Criar Novo Módulo**
+### 1. **Criar Nova Página**
+
+```python
+# pages/8_🆕_nova_analise.py
+import streamlit as st
+from modules.nova_analise import display_nova_analise
+from utils.sidebar_filters import create_global_sidebar
+
+# Configuração da página
+st.set_page_config(page_title="Nova Análise", page_icon="🆕", layout="wide")
+
+# Criar sidebar global com filtros
+df_filtered = create_global_sidebar()
+
+# Título da página
+st.title("🆕 Nova Análise")
+
+# Exibir análise
+display_nova_analise(df_filtered)
+```
+
+### 2. **Criar Módulo Correspondente**
 
 ```python
 # modules/nova_analise.py
@@ -199,31 +259,27 @@ def display_nova_analise(df_filtered):
     pass
 ```
 
-### 2. **Importar no Arquivo Principal**
-
-```python
-# dashboard.py
-from modules.nova_analise import display_nova_analise
-
-# Adicionar na sequência
-display_nova_analise(df_filtered)
-```
-
 ## 📊 **Funcionalidades Implementadas**
 
 ### ✅ **Alta Prioridade (Concluídas)**
 
+-   [x] Sistema de páginas com Streamlit Pages
+-   [x] Filtros globais persistentes
+-   [x] Navegação intuitiva entre análises
 -   [x] Análise temporal avançada
 -   [x] Top produtos por faturamento
 -   [x] Segmentação de clientes
 -   [x] Performance por filial
 -   [x] Análise de margem
+-   [x] Sidebar global funcional
 
 ### 🔄 **Próximos Passos**
 
 -   [ ] Análise de pagamentos
 -   [ ] Correlações entre variáveis
 -   [ ] KPIs dinâmicos avançados
+-   [ ] Exportação de relatórios
+-   [ ] Temas personalizáveis
 
 ## 📊 **Dataset**
 
@@ -236,6 +292,26 @@ O projeto utiliza o arquivo `supermarket_sales.csv` que contém dados de vendas 
 -   **3 formas de pagamento**: Cash, Ewallet, Credit card
 -   **2 tipos de cliente**: Member vs Normal
 -   **Dados financeiros**: Preço unitário, quantidade, impostos, margem, COGS
+
+## 🎨 **Interface e UX**
+
+### **Design Responsivo**
+
+-   Layout adaptável para diferentes dispositivos
+-   Sidebar sempre visível com filtros
+-   Navegação clara e intuitiva
+
+### **Filtros Inteligentes**
+
+-   Filtros por período, cidade e produto
+-   Aplicação automática em todas as páginas
+-   Persistência entre navegações
+
+### **Visualizações Interativas**
+
+-   Gráficos Plotly responsivos
+-   Hover effects informativos
+-   Zoom e pan em gráficos complexos
 
 ## 🤝 **Contribuição**
 
@@ -257,6 +333,8 @@ Para dúvidas ou suporte, entre em contato através das issues do repositório.
 
 ---
 
-**🎉 Dashboard organizado, modular e fácil de expandir!**
+**🎉 Dashboard profissional com navegação por páginas e filtros globais!**
 
-**Desenvolvido com ❤️ usando Streamlit e Python**
+**Desenvolvido com ❤️ usando Streamlit, Python e Streamlit Pages**
+
+**Versão 2.0 - Sistema de Páginas e Filtros Globais**
