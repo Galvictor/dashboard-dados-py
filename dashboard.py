@@ -24,10 +24,14 @@ col1, col2 = st.columns(2)
 col3, col4, col5 = st.columns(3)
 
 fig_fatdate = px.bar(df_filtered, x="Date", y="Total", color="City", title="Faturamento por dia")
-col1.plotly_chart(fig_fatdate, use_container_width=True)
+col1.plotly_chart(fig_fatdate)
 
 fig_prod = px.bar(df_filtered, x="Date", y="Product line", color="City",
  title="Faturamento por tipo de produto", orientation="h")
-col2.plotly_chart(fig_prod, use_container_width=True)
+col2.plotly_chart(fig_prod)
+
+city_total = df_filtered.groupby("City")[["Total"]].sum().reset_index()
+fig_city = px.bar(city_total, x="City", y="Total", title="Faturamento por filial")
+col3.plotly_chart(fig_city)
 
 
