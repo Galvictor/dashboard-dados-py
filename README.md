@@ -38,7 +38,7 @@ dashboard_dados_py/
 -   Python 3.8 ou superior
 -   pip (gerenciador de pacotes Python)
 
-### Passos para instalação
+### **Opção 1: Instalação rápida (recomendada)**
 
 1. **Clone ou baixe o projeto**
 2. **Navegue até a pasta do projeto**
@@ -61,8 +61,39 @@ dashboard_dados_py/
 
 4. **Instale as dependências**
     ```bash
-    pip install streamlit pandas plotly
+    pip install -r requirements.txt
     ```
+
+### **Opção 2: Instalação com dependências de desenvolvimento**
+
+```bash
+pip install -r requirements-dev.txt
+```
+
+### **Opção 3: Instalação manual**
+
+```bash
+pip install streamlit>=1.28.0 pandas>=2.0.0 plotly>=5.15.0 numpy>=1.24.0
+```
+
+## 🛠️ **Requisitos**
+
+### **Dependências Principais**
+
+```bash
+pip install -r requirements.txt
+```
+
+### **Arquivos de Dependências**
+
+-   **`requirements.txt`** - Dependências essenciais para produção
+-   **`requirements-dev.txt`** - Dependências adicionais para desenvolvimento
+
+### **Dependências Mínimas**
+
+```bash
+pip install streamlit>=1.28.0 pandas>=2.0.0 plotly>=5.15.0 numpy>=1.24.0
+```
 
 ## 🎯 **Como Executar**
 

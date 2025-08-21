@@ -1,0 +1,19 @@
+# Dashboard de Vendas - Supermercado
+# Dependências principais
+
+# Framework web para dados
+streamlit>=1.28.0
+
+# Manipulação e análise de dados
+pandas>=2.0.0
+
+# Gráficos interativos
+plotly>=5.15.0
+
+# Dependências opcionais para melhor performance
+numpy>=1.24.0
+
+# Para desenvolvimento (opcional)
+# python-dotenv>=1.0.0  # Para variáveis de ambiente
+# openpyxl>=3.1.0       # Para ler arquivos Excel
+# xlrd>=2.0.0           # Para arquivos Excel antigos
